@@ -1,5 +1,5 @@
 import React from "react";
-import { Content, Framework } from "../../components";
+import { Content, Framework, Key, Callout, PieChart } from "../../components";
 
 const Layout = () => {
     // Define the frameworkContent dataset
@@ -31,14 +31,16 @@ const Layout = () => {
             <div className="row learning-framework__container">
                 <div className="learning-framework__col learning-framework__col--content">
                     {/* Render the content component */}
-                    <Content
-                        bodyTextOne="St John Bosco considered there to be four spaces where the elements of education occur."
-                        bodyTextTwo="At St John Bosco College, we take an evidence-informed approach to teaching and learning. This learning-framework places that evidence into the following elements of education."
-                    />
+                    <div className="learning-framework__item">
+                        <Content
+                            bodyTextOne="St John Bosco considered there to be four spaces where the elements of education occur."
+                            bodyTextTwo="At St John Bosco College, we take an evidence-informed approach to teaching and learning. This learning-framework places that evidence into the following elements of education."
+                        />
+                    </div>
 
                     {/* Render the framework components */}
                     <div className="learning-framework__item">
-                        <h2 class="text-uppercase">Frameworks</h2>
+                        <h2 className="text-uppercase">Frameworks</h2>
 
                         {frameworkContent.map((item, index) => (
                             <Framework
@@ -51,10 +53,30 @@ const Layout = () => {
                     </div>
 
                     {/* Render the key components */}
-                    <h2 className="text-uppercase">Key</h2>
+                    <div className="learning-framework__item">
+                        <h2 className="text-uppercase">Key</h2>
+
+                        <Key
+                            dotOne="blue"
+                            dotTwo="green"
+                            dotThree="red"
+                            dotFour="orange"
+                            bodyText="Learning framework"
+                        />
+
+                        <Key dotOne="yellow" bodyText="Wellbeing framework" />
+                    </div>
                 </div>
 
-                <div className="learning-framework__col learning-framework__col--chart"></div>
+                <div className="learning-framework__col learning-framework__col--chart">
+                    {/* Render the callout component */}
+                    <Callout calloutText="Interact with the chart pieces to learn more" />
+
+                    {/* Render the pie chart component */}
+                    <div className="learning-framework__pie">
+                        <PieChart />
+                    </div>
+                </div>
             </div>
         </div>
     );
