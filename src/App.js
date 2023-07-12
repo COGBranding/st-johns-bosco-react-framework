@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import React from "react";
+import "./App.css";
+import {
+    Drawer,
+    DrawerBody,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton,
+    useDisclosure,
+    Button,
+    Input,
+} from "@chakra-ui/react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const btnRef = React.useRef();
+
+    return (
+        <>
+            <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+                Open
+            </Button>
+            <Drawer
+                isOpen={isOpen}
+                placement="right"
+                onClose={onClose}
+                finalFocusRef={btnRef}
+            >
+                <DrawerOverlay />
+                <DrawerContent>
+                    <DrawerCloseButton />
+                    <DrawerHeader>Create your account</DrawerHeader>
+
+                    <DrawerBody>
+                        <Input placeholder="Type here..." />
+                    </DrawerBody>
+
+                    <DrawerFooter>
+                        <Button variant="outline" mr={3} onClick={onClose}>
+                            Cancel
+                        </Button>
+                        <Button colorScheme="blue">Save</Button>
+                    </DrawerFooter>
+                </DrawerContent>
+            </Drawer>
+        </>
+    );
 }
 
 export default App;
