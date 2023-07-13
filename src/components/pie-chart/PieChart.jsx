@@ -9,8 +9,6 @@ const PieChart = () => {
     const [popupContent, setPopupContent] = useState(null);
 
     const handlePieClick = (data, event) => {
-        // console.log(event, data);
-
         if (data && data.data) {
             const { id } = data.data;
 
@@ -19,7 +17,6 @@ const PieChart = () => {
             const clickedPiece = pieData.find((item) => item.id === id);
 
             if (clickedPiece) {
-                console.log("Clicked piece:", clickedPiece);
                 setPopupContent(clickedPiece);
                 setIsPopupOpen(true);
             }
@@ -51,7 +48,7 @@ const PieChart = () => {
                 <ResponsivePie
                     data={dataOuter}
                     startAngle={-45}
-                    innerRadius={0.75}
+                    innerRadius={0.8}
                     borderWidth={3}
                     borderColor={"black"}
                     margin={{ top: 40, right: 40, bottom: 40, left: 40 }}

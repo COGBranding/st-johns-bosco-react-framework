@@ -1,10 +1,7 @@
 // Imports
-@import "./components/callout/callout";
-@import "./components/framework/framework";
-@import "./components/key/key";
-@import "./components/pie-chart/pie-chart";
-@import "./components/popup/popup";
-@import "./components/tooltip/tooltip";
+@import "./components/callout/callout", "./components/framework/framework",
+    "./components/key/key", "./components/overlay/overlay",
+    "./components/pie-chart/pie-chart", "./components/popup/popup";
 
 // Colour
 $color-pie-yellow: "#ffd700";
