@@ -1,3 +1,9 @@
+/*
+*
+ Note: The logic in place looks for the "inner" text at the start of the "id", if this is removed the popup functionality will no longer work.
+ *
+ */
+
 const wellbeingFrameworkText = "Wellbeing framework";
 
 export const dataWellbeingFramework = [

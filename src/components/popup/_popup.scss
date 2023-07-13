@@ -12,7 +12,7 @@
     transform: translate(-50%, -50%);
 
     &__head {
-        padding: 0.5rem 1.5rem;
+        padding: 1rem 1.5rem 0.5rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -43,11 +43,14 @@
             opacity: 0.5;
 
             &__wrapper {
-                width: 3rem;
-                height: 3rem;
+                width: 2.5rem;
+                height: 2.5rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.05);
+                border-radius: 8px;
             }
         }
     }
