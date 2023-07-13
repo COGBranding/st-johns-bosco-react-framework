@@ -1,19 +1,10 @@
+import { dataLearningFramework as dataInner } from "../../data/dataLearningFramework";
+import { dataWellbeingFramework as dataOuter } from "../../data/dataWellbeingFramework";
 import { ResponsivePie } from "@nivo/pie";
-import { dataLearningFramework as data } from "../../data/dataLearningFramework";
 
 const PieChart = () => {
-    const dataFull = [
-        { id: "Reflecting", value: 25, color: "#FFD700" },
-        { id: "Belonging", value: 25, color: "#FFD700" },
-        { id: "Learning", value: 25, color: "#FFD700" },
-        { id: "Celebrating", value: 25, color: "#FFD700" },
-    ];
-
     return (
-        <div
-            className="pie-chart"
-            style={{ display: "flex", width: "100%", height: "600px" }}
-        >
+        <div className="pie-chart">
             {/* Render the salesian values cross */}
             <div className="pie-chart__cross">
                 <p className="pie-chart__cross__title font-script">
@@ -24,26 +15,45 @@ const PieChart = () => {
                 <div className="pie-chart__cross__piece pie-chart__cross__piece--vertical"></div>
             </div>
 
-            {/* Render the inner pie pie chart */}
-            <ResponsivePie
-                data={dataFull}
-                colorBy={(d) => d.color} // Use the 'color' property in dataFull to determine the color
-                startAngle={-180}
-                endAngle={180}
-                innerRadius={0}
-                padAngle={0.7}
-                borderWidth={4}
-                borderColor={"black"}
-                margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
-                activeOuterRadiusOffset={8}
-                arcLinkLabelsSkipAngle={10}
-                arcLinkLabelsTextColor={"fff"}
-                arcLinkLabelsThickness={2}
-                arcLabelsSkipAngle={10}
-                animate
-            />
-
             {/* Render the outer pie chart */}
+            <div className="pie-chart--outer">
+                <ResponsivePie
+                    data={dataOuter}
+                    startAngle={-45}
+                    innerRadius={0.75}
+                    borderWidth={3}
+                    borderColor={"black"}
+                    margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+                    activeOuterRadiusOffset={12}
+                    arcLinkLabelsSkipAngle={10}
+                    arcLinkLabelsTextColor={"fff"}
+                    arcLinkLabelsThickness={2}
+                    enableArcLinkLabels={false}
+                    animate
+                    tooltip={() => null}
+                />
+            </div>
+
+            {/* Render the inner pie chart */}
+            <div className="pie-chart--inner">
+                <ResponsivePie
+                    data={dataInner}
+                    startAngle={-180}
+                    endAngle={180}
+                    innerRadius={0}
+                    borderWidth={3}
+                    borderColor={"black"}
+                    margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+                    activeOuterRadiusOffset={12}
+                    arcLinkLabelsSkipAngle={10}
+                    arcLinkLabelsTextColor={"fff"}
+                    arcLinkLabelsThickness={2}
+                    enableArcLabels={false}
+                    enableArcLinkLabels={false}
+                    animate
+                    tooltip={() => null}
+                />
+            </div>
         </div>
     );
 };
