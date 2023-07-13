@@ -4,6 +4,11 @@
  *
  */
 
+import IconBelonging from "../assets/icons/IconBelonging";
+import IconCelebrating from "../assets/icons/IconCelebrating";
+import IconLearning from "../assets/icons/IconLearning";
+import IconReflecting from "../assets/icons/IconReflecting";
+
 const wellbeingFrameworkText = "Wellbeing framework";
 
 export const dataWellbeingFramework = [
@@ -11,6 +16,7 @@ export const dataWellbeingFramework = [
         id: "inner Reflecting",
         value: 1,
         borderColor: "yellow",
+        icon: IconReflecting,
 
         framework: wellbeingFrameworkText,
         heading: "Reflecting",
@@ -32,6 +38,7 @@ export const dataWellbeingFramework = [
         id: "inner Belonging",
         value: 1,
         borderColor: "yellow",
+        icon: IconBelonging,
 
         framework: wellbeingFrameworkText,
         heading: "Belonging",
@@ -53,6 +60,7 @@ export const dataWellbeingFramework = [
         id: "inner Learning",
         value: 1,
         borderColor: "yellow",
+        icon: IconLearning,
 
         framework: wellbeingFrameworkText,
         heading: "Learning",
@@ -75,6 +83,7 @@ export const dataWellbeingFramework = [
         id: "inner Celebrating",
         value: 1,
         borderColor: "yellow",
+        icon: IconCelebrating,
 
         framework: wellbeingFrameworkText,
         heading: "Celebrating",
