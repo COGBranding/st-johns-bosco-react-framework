@@ -1,5 +1,13 @@
 import React from "react";
-import { Content, Framework, Key, Callout, PieChart } from "../../components";
+import {
+    Callout,
+    Content,
+    Framework,
+    InnerText,
+    Key,
+    OuterText,
+    PieChart,
+} from "../../components";
 
 const Layout = () => {
     // Define the frameworkContent dataset
@@ -74,6 +82,9 @@ const Layout = () => {
 
                     {/* Render the pie chart component */}
                     <PieChart />
+
+                    <InnerText />
+                    <OuterText />
                 </div>
             </div>
         </div>
