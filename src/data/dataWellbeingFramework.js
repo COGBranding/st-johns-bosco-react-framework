@@ -2,7 +2,7 @@ const wellbeingFrameworkText = "Wellbeing framework";
 
 export const dataWellbeingFramework = [
     {
-        id: "Reflecting",
+        id: "inner Reflecting",
         value: 1,
         borderColor: "yellow",
 
@@ -23,7 +23,7 @@ export const dataWellbeingFramework = [
     },
 
     {
-        id: "Belonging",
+        id: "inner Belonging",
         value: 1,
         borderColor: "yellow",
 
@@ -44,7 +44,7 @@ export const dataWellbeingFramework = [
     },
 
     {
-        id: "Learning",
+        id: "inner Learning",
         value: 1,
         borderColor: "yellow",
 
@@ -66,7 +66,7 @@ export const dataWellbeingFramework = [
     },
 
     {
-        id: "Celebrating",
+        id: "inner Celebrating",
         value: 1,
         borderColor: "yellow",
 

@@ -9,6 +9,8 @@ const PieChart = () => {
     const [popupContent, setPopupContent] = useState(null);
 
     const handlePieClick = (data, event) => {
+        // console.log(event, data);
+
         if (data && data.data) {
             const { id } = data.data;
 
@@ -17,6 +19,7 @@ const PieChart = () => {
             const clickedPiece = pieData.find((item) => item.id === id);
 
             if (clickedPiece) {
+                console.log("Clicked piece:", clickedPiece);
                 setPopupContent(clickedPiece);
                 setIsPopupOpen(true);
             }

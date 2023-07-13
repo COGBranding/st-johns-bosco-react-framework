@@ -2,7 +2,7 @@ const learningFrameworkText = "Learning framework";
 
 export const dataLearningFramework = [
     {
-        id: "Learning Environment",
+        id: "outer Learning Environment",
         value: 1,
         borderColor: "blue",
 
@@ -27,7 +27,7 @@ export const dataLearningFramework = [
     },
 
     {
-        id: "Explicit Teaching",
+        id: "outer Explicit Teaching",
         value: 1,
         borderColor: "green",
 
@@ -51,7 +51,7 @@ export const dataLearningFramework = [
     },
 
     {
-        id: "Quality Assessment",
+        id: "outer Quality Assessment",
         value: 1,
         borderColor: "green",
 
@@ -76,7 +76,7 @@ export const dataLearningFramework = [
     },
 
     {
-        id: "Wellbeing",
+        id: "outer Wellbeing",
         value: 1,
         borderColor: "red",
 
@@ -101,7 +101,7 @@ export const dataLearningFramework = [
     },
 
     {
-        id: "High Expectations",
+        id: "outer High Expectations",
         value: 1,
         borderColor: "red",
 
@@ -126,7 +126,7 @@ export const dataLearningFramework = [
     },
 
     {
-        id: "Using Data",
+        id: "outer Using Data",
         value: 1,
         borderColor: "orange",
 
@@ -150,7 +150,7 @@ export const dataLearningFramework = [
     },
 
     {
-        id: "Effective Feedback",
+        id: "outer Effective Feedback",
         value: 1,
         borderColor: "orange",
 
@@ -174,7 +174,7 @@ export const dataLearningFramework = [
     },
 
     {
-        id: "Collaboration",
+        id: "outer Collaboration",
         value: 1,
         borderColor: "blue",
 

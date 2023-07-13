@@ -14,6 +14,10 @@ const Popup = ({
     principleText,
     principleListItems,
 }) => {
+    if (!isOpen) {
+        return null; // Render nothing if the popup is not open
+    }
+
     return (
         <div className={`popup ${isOpen ? "open" : ""} popup--${borderColor}`}>
             <div className="popup__head">
@@ -29,10 +33,15 @@ const Popup = ({
                     ) : null}
                 </div>
 
-                <GrClose
-                    className="popup__head__close-icon"
-                    onClick={onClose}
-                />
+                <div
+                    className="popup__head__close-icon__wrapper"
+                    onClick={(event) => {
+                        event.stopPropagation();
+                        onClose();
+                    }}
+                >
+                    <GrClose className="popup__head__close-icon" />
+                </div>
             </div>
 
             <div className="popup__body">
@@ -66,7 +75,7 @@ const Popup = ({
                     {learnerListItems ? (
                         <>
                             <h4 className="popup__subheading--sm">
-                                The Bosco teacher:
+                                The Bosco learner:
                             </h4>
 
                             <ul className="popup__list">
