@@ -1,0 +1,39 @@
+.framework {
+    padding-left: 0.75rem;
+    border-radius: 4px 0px 0px 4px;
+    border-left: 8px solid #000;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        padding-left: 1rem;
+        transition: all 0.2s ease-in-out;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+
+    &--blue {
+        border-color: #4c6edb;
+    }
+
+    &--green {
+        border-color: #7acb6e;
+    }
+
+    &--red {
+        border-color: #e74c3c;
+    }
+
+    &--orange {
+        border-color: #ff8c00;
+    }
+
+    &__heading {
+        padding-bottom: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.2;
+        color: #000;
+    }
+}

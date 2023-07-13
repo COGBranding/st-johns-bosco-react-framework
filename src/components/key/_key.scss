@@ -1,0 +1,43 @@
+.key {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    &:not(:last-child) {
+        margin-bottom: 0.25rem;
+    }
+
+    &__dot {
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 50%;
+
+        &:not(:nth-child(4)) {
+            margin-right: -0.5rem;
+        }
+
+        &--blue {
+            background-color: #4c6edb;
+        }
+
+        &--green {
+            background-color: #7acb6e;
+        }
+
+        &--red {
+            background-color: #e74c3c;
+        }
+
+        &--orange {
+            background-color: #ff8c00;
+        }
+
+        &--yellow {
+            background-color: #ffd700;
+        }
+
+        &--transparent {
+            background-color: transparent;
+        }
+    }
+}

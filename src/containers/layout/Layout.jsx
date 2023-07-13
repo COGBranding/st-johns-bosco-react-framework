@@ -73,9 +73,7 @@ const Layout = () => {
                     <Callout calloutText="Interact with the chart pieces to learn more" />
 
                     {/* Render the pie chart component */}
-                    <div className="learning-framework__pie">
-                        <PieChart />
-                    </div>
+                    <PieChart />
                 </div>
             </div>
         </div>
