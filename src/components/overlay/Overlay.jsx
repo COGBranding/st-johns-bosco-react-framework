@@ -11,7 +11,7 @@ const Overlay = () => {
         return () => {
             document.body.removeChild(bodyOverlay);
         };
-    }, []);
+    });
 
     return ReactDOM.createPortal(null, bodyOverlay);
 };
