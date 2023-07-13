@@ -1,8 +1,36 @@
-import { dataLearningFramework as dataInner } from "../../data/dataLearningFramework";
-import { dataWellbeingFramework as dataOuter } from "../../data/dataWellbeingFramework";
+import React, { useEffect, useState } from "react";
 import { ResponsivePie } from "@nivo/pie";
+import { Popup } from "../index";
+import { dataLearningFramework as dataOuter } from "../../data/dataLearningFramework";
+import { dataWellbeingFramework as dataInner } from "../../data/dataWellbeingFramework";
 
 const PieChart = () => {
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [popupContent, setPopupContent] = useState(null);
+
+    const handlePieClick = (data, event) => {
+        if (data && data.data) {
+            const { id } = data.data;
+
+            // Find the corresponding data object in dataInner or dataOuter
+            const pieData = id.startsWith("inner") ? dataInner : dataOuter;
+            const clickedPiece = pieData.find((item) => item.id === id);
+
+            if (clickedPiece) {
+                setPopupContent(clickedPiece);
+                setIsPopupOpen(true);
+            }
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("click", handlePieClick);
+
+        return () => {
+            document.removeEventListener("click", handlePieClick);
+        };
+    }, []);
+
     return (
         <div className="pie-chart">
             {/* Render the salesian values cross */}
@@ -28,9 +56,11 @@ const PieChart = () => {
                     arcLinkLabelsSkipAngle={10}
                     arcLinkLabelsTextColor={"fff"}
                     arcLinkLabelsThickness={2}
+                    enableArcLabels={false}
                     enableArcLinkLabels={false}
                     animate
                     tooltip={() => null}
+                    onClick={handlePieClick}
                 />
             </div>
 
@@ -52,8 +82,25 @@ const PieChart = () => {
                     enableArcLinkLabels={false}
                     animate
                     tooltip={() => null}
+                    onClick={handlePieClick}
                 />
             </div>
+
+            {popupContent && (
+                <Popup
+                    isOpen={isPopupOpen}
+                    onClose={() => setIsPopupOpen(false)}
+                    borderColor={popupContent.borderColor}
+                    framework={popupContent.framework}
+                    frameworkCategory={popupContent.frameworkCategory}
+                    heading={popupContent.heading}
+                    subheading={popupContent.subheading}
+                    teacherListItems={popupContent.teacherListItems}
+                    learnerListItems={popupContent.learnerListItems}
+                    principleText={popupContent.principleText}
+                    principleListItems={popupContent.principleListItems}
+                />
+            )}
         </div>
     );
 };

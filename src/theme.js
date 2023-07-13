@@ -9,9 +9,18 @@ export const tokens = () => ({
         red: "#e74c3c",
         orange: "#ff8c00",
     },
+
+    brand: {
+        black: "#000000",
+        grey: "333c4e",
+        white: "#ffffff",
+        green: "#005027",
+        border: "#dadada",
+    },
 });
 
 export const useMode = () => {
     const theme = useMemo(() => createTheme(), []);
+
     return [theme];
 };
