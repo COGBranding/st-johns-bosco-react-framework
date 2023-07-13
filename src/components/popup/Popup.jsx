@@ -34,12 +34,14 @@ const Popup = ({
                             <p className="text-uppercase">{framework}</p>
                         ) : null}
 
-                        <p className="text-uppercase">//</p>
-
                         {frameworkCategory ? (
-                            <p className="text-uppercase">
-                                {frameworkCategory}
-                            </p>
+                            <>
+                                <p className="text-uppercase">//</p>
+
+                                <p className="text-uppercase">
+                                    {frameworkCategory}
+                                </p>
+                            </>
                         ) : null}
                     </div>
 
