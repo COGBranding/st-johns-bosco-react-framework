@@ -11,12 +11,10 @@ const PieChart = () => {
     const handlePieClick = (data, event) => {
         if (data && data.data) {
             const { id } = data.data;
-            console.log("Clicked ID:", id);
 
             if (id.includes("inner")) {
                 // Handle inner pie chart click
                 const clickedPiece = dataInner.find((item) => item.id === id);
-                console.log("Clicked Piece:", clickedPiece);
 
                 if (clickedPiece) {
                     setPopupContent(clickedPiece);
@@ -25,7 +23,6 @@ const PieChart = () => {
             } else {
                 // Handle outer pie chart click
                 const clickedPiece = dataOuter.find((item) => item.id === id);
-                console.log("Clicked Piece:", clickedPiece);
 
                 if (clickedPiece) {
                     setPopupContent(clickedPiece);
