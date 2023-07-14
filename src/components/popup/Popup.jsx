@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { GrClose } from "react-icons/gr";
 import { Overlay } from "../index";
 
@@ -16,6 +16,7 @@ const Popup = ({
     principleListItems,
 }) => {
     const [isCloseIconFocused, setIsCloseIconFocused] = useState(false);
+    const closeIconRef = useRef(null);
 
     const handleKeyDown = (event) => {
         if (event.key === "Enter" && isCloseIconFocused) {
@@ -28,7 +29,7 @@ const Popup = ({
             const handleFocus = () => setIsCloseIconFocused(true);
             const handleBlur = () => setIsCloseIconFocused(false);
 
-            const closeIconElement = document.getElementById("close-icon");
+            const closeIconElement = closeIconRef.current;
             closeIconElement.addEventListener("focus", handleFocus);
             closeIconElement.addEventListener("blur", handleBlur);
 
@@ -55,26 +56,25 @@ const Popup = ({
             >
                 <div className="popup__head">
                     <div className="popup__head__content">
-                        {framework ? (
+                        {framework && (
                             <p className="text-uppercase">{framework}</p>
-                        ) : null}
+                        )}
 
-                        {frameworkCategory ? (
+                        {frameworkCategory && (
                             <>
                                 <p className="text-uppercase">//</p>
-
                                 <p className="text-uppercase">
                                     {frameworkCategory}
                                 </p>
                             </>
-                        ) : null}
+                        )}
                     </div>
 
                     <div
                         className="popup__head__close-icon__wrapper"
                         onClick={onClose}
                         tabIndex={0}
-                        id="close-icon"
+                        ref={closeIconRef}
                     >
                         <GrClose className="popup__head__close-icon" />
                     </div>
@@ -82,18 +82,18 @@ const Popup = ({
 
                 <div className="popup__body">
                     <div className="popup__body__heading">
-                        {heading ? (
+                        {heading && (
                             <h2 className="popup__heading">{heading}</h2>
-                        ) : null}
+                        )}
 
-                        {subheading ? (
+                        {subheading && (
                             <p className="popup__subheading">{subheading}</p>
-                        ) : null}
+                        )}
                     </div>
 
                     <div className="popup__body__content">
                         {/* Render the teacher heading and list teacherListItems */}
-                        {teacherListItems ? (
+                        {teacherListItems && (
                             <>
                                 <h4 className="popup__subheading--sm">
                                     The Bosco teacher:
@@ -105,10 +105,10 @@ const Popup = ({
                                     ))}
                                 </ul>
                             </>
-                        ) : null}
+                        )}
 
                         {/* Render the learner heading and list learnerListItems */}
-                        {learnerListItems ? (
+                        {learnerListItems && (
                             <>
                                 <h4 className="popup__subheading--sm">
                                     The Bosco learner:
@@ -120,16 +120,16 @@ const Popup = ({
                                     ))}
                                 </ul>
                             </>
-                        ) : null}
+                        )}
 
                         {/* Render the principle heading and principleListItems */}
-                        {principleText || principleListItems ? (
+                        {(principleText || principleListItems) && (
                             <>
                                 <h4 className="popup__subheading--sm">
                                     Principle
                                 </h4>
 
-                                <p>{principleText}</p>
+                                {principleText && <p>{principleText}</p>}
 
                                 <ul className="popup__list">
                                     {principleListItems.map((text, index) => (
@@ -137,7 +137,7 @@ const Popup = ({
                                     ))}
                                 </ul>
                             </>
-                        ) : null}
+                        )}
                     </div>
                 </div>
             </div>

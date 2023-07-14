@@ -10,7 +10,7 @@ export const dataLearningFramework = [
     {
         id: "outer Learning Environment",
         value: 1,
-        order: 2,
+        order: 6,
         borderColor: "blue",
 
         framework: learningFrameworkText,
@@ -36,7 +36,7 @@ export const dataLearningFramework = [
     {
         id: "outer Explicit Teaching",
         value: 1,
-        order: 3,
+        order: 7,
         borderColor: "green",
 
         framework: learningFrameworkText,
@@ -61,7 +61,7 @@ export const dataLearningFramework = [
     {
         id: "outer Quality Assessment",
         value: 1,
-        order: 4,
+        order: 8,
         borderColor: "green",
 
         framework: learningFrameworkText,
@@ -87,7 +87,7 @@ export const dataLearningFramework = [
     {
         id: "outer Wellbeing",
         value: 1,
-        order: 5,
+        order: 9,
         borderColor: "red",
 
         framework: learningFrameworkText,
@@ -113,7 +113,7 @@ export const dataLearningFramework = [
     {
         id: "outer High Expectations",
         value: 1,
-        order: 6,
+        order: 10,
         borderColor: "red",
 
         framework: learningFrameworkText,
@@ -139,7 +139,7 @@ export const dataLearningFramework = [
     {
         id: "outer Using Data",
         value: 1,
-        order: 7,
+        order: 11,
         borderColor: "orange",
 
         framework: learningFrameworkText,
@@ -164,7 +164,7 @@ export const dataLearningFramework = [
     {
         id: "outer Effective Feedback",
         value: 1,
-        order: 8,
+        order: 12,
         borderColor: "orange",
 
         framework: learningFrameworkText,
@@ -189,7 +189,7 @@ export const dataLearningFramework = [
     {
         id: "outer Collaboration",
         value: 1,
-        order: 1,
+        order: 5,
         borderColor: "blue",
 
         framework: learningFrameworkText,

@@ -7,25 +7,30 @@ import { dataWellbeingFramework as dataInner } from "../../data/dataWellbeingFra
 const PieChart = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [popupContent, setPopupContent] = useState(null);
-    const [currentPopupIndex, setCurrentPopupIndex] = useState(0);
 
     const handlePieClick = (data, event) => {
         if (data && data.data) {
             const { id } = data.data;
+            console.log("Clicked ID:", id);
 
-            // Find the corresponding data object in dataInner or dataOuter
-            // If the data id starts with inner it will render popup content from the dataInner file, else dataOuter file
-            const pieData = id.startsWith("inner") ? dataInner : dataOuter;
-            const clickedPiece = pieData.find((item) => item.id === id);
+            if (id.includes("inner")) {
+                // Handle inner pie chart click
+                const clickedPiece = dataInner.find((item) => item.id === id);
+                console.log("Clicked Piece:", clickedPiece);
 
-            if (clickedPiece) {
-                const clickedIndex = pieData.findIndex(
-                    (item) => item.id === id
-                );
+                if (clickedPiece) {
+                    setPopupContent(clickedPiece);
+                    setIsPopupOpen(true);
+                }
+            } else {
+                // Handle outer pie chart click
+                const clickedPiece = dataOuter.find((item) => item.id === id);
+                console.log("Clicked Piece:", clickedPiece);
 
-                setPopupContent(clickedPiece);
-                setIsPopupOpen(true);
-                setCurrentPopupIndex(clickedIndex);
+                if (clickedPiece) {
+                    setPopupContent(clickedPiece);
+                    setIsPopupOpen(true);
+                }
             }
         }
     };
@@ -36,47 +41,15 @@ const PieChart = () => {
         }
     };
 
-    const handleArrowKeys = (event) => {
-        if (event.key === "ArrowLeft") {
-            // Show the previous popup
-            setCurrentPopupIndex((prevIndex) => {
-                if (prevIndex === 0) {
-                    return dataOuter.length + dataInner.length - 1; // Set the index to the last popup of the combined data
-                } else {
-                    return prevIndex - 1;
-                }
-            });
-        } else if (event.key === "ArrowRight") {
-            // Show the next popup
-            setCurrentPopupIndex((prevIndex) => {
-                if (prevIndex === dataOuter.length + dataInner.length - 1) {
-                    return 0; // Set the index to the first popup of the combined data
-                } else {
-                    return prevIndex + 1;
-                }
-            });
-        }
-    };
-
     useEffect(() => {
         document.addEventListener("click", handlePieClick);
         document.addEventListener("keydown", handleEscapeKey);
-        document.addEventListener("keydown", handleArrowKeys);
 
         return () => {
             document.removeEventListener("click", handlePieClick);
             document.removeEventListener("keydown", handleEscapeKey);
-            document.removeEventListener("keydown", handleArrowKeys);
         };
     }, []);
-
-    useEffect(() => {
-        if (isPopupOpen) {
-            const popupData = dataOuter.concat(dataInner);
-            const currentPopup = popupData[currentPopupIndex];
-            setPopupContent(currentPopup);
-        }
-    }, [currentPopupIndex, isPopupOpen]);
 
     return (
         <div className="pie-chart">
@@ -107,7 +80,7 @@ const PieChart = () => {
                     enableArcLinkLabels={false}
                     animate
                     tooltip={() => null}
-                    onClick={handlePieClick}
+                    onClick={(data, event) => handlePieClick(data, event)}
                 />
             </div>
 
@@ -129,7 +102,7 @@ const PieChart = () => {
                     enableArcLinkLabels={false}
                     animate
                     tooltip={() => null}
-                    onClick={handlePieClick}
+                    onClick={(data, event) => handlePieClick(data, event)}
                 />
             </div>
 
@@ -146,6 +119,7 @@ const PieChart = () => {
                     learnerListItems={popupContent.learnerListItems}
                     principleText={popupContent.principleText}
                     principleListItems={popupContent.principleListItems}
+                    isInnerLayer={popupContent.id.includes("inner")}
                 />
             )}
         </div>

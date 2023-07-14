@@ -10,7 +10,7 @@ export const dataWellbeingFramework = [
     {
         id: "inner Reflecting",
         value: 1,
-        order: 12,
+        order: 4,
         borderColor: "yellow",
 
         framework: wellbeingFrameworkText,
@@ -32,7 +32,7 @@ export const dataWellbeingFramework = [
     {
         id: "inner Belonging",
         value: 1,
-        order: 9,
+        order: 1,
         borderColor: "yellow",
 
         framework: wellbeingFrameworkText,
@@ -54,7 +54,7 @@ export const dataWellbeingFramework = [
     {
         id: "inner Learning",
         value: 1,
-        order: 10,
+        order: 2,
         borderColor: "yellow",
 
         framework: wellbeingFrameworkText,
@@ -77,7 +77,7 @@ export const dataWellbeingFramework = [
     {
         id: "inner Celebrating",
         value: 1,
-        order: 11,
+        order: 3,
         borderColor: "yellow",
 
         framework: wellbeingFrameworkText,
