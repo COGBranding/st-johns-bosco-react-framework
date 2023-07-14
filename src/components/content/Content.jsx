@@ -1,10 +1,11 @@
 import React from "react";
 
-const Content = ({ bodyTextOne, bodyTextTwo }) => {
+const Content = ({ bodyText }) => {
     return (
         <div className="content">
-            {bodyTextOne ? <p>{bodyTextOne}</p> : null}
-            {bodyTextTwo ? <p>{bodyTextTwo}</p> : null}
+            {bodyText.map((text, index) => (
+                <p key={index}>{text}</p>
+            ))}
         </div>
     );
 };

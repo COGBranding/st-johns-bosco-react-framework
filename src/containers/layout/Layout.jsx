@@ -8,7 +8,8 @@ import {
     OuterText,
     PieChart,
 } from "../../components";
-import { dataFrameworkContent as data } from "../../data/dataFrameworkContent";
+import { dataFrameworkContent as dataFramework } from "../../data/dataFrameworkContent";
+import { dataFrameworkIntro as dataIntro } from "../../data/dataFrameworkIntro";
 
 const Layout = () => {
     return (
@@ -18,8 +19,7 @@ const Layout = () => {
                     {/* Render the content component */}
                     <div className="learning-framework__item">
                         <Content
-                            bodyTextOne="St John Bosco considered there to be four spaces where the elements of education occur."
-                            bodyTextTwo="At St John Bosco College, we take an evidence-informed approach to teaching and learning. This learning-framework places that evidence into the following elements of education."
+                            bodyText={dataIntro.map((item) => item.text)}
                         />
                     </div>
 
@@ -28,7 +28,7 @@ const Layout = () => {
                         <h2 className="text-uppercase">Frameworks</h2>
 
                         {/* Map over the dataFrameworkContent and render the components */}
-                        {data.map((item, index) => (
+                        {dataFramework.map((item, index) => (
                             <Framework
                                 key={index}
                                 borderColor={item.borderColor}
