@@ -61,7 +61,10 @@ const Layout = () => {
                     {/* Render the pie chart component */}
                     <PieChart />
 
+                    {/* Render the inner text and icon SVGs */}
                     <InnerText />
+
+                    {/* Render the outer text SVGs */}
                     <OuterText />
                 </div>
             </div>

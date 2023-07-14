@@ -13,6 +13,7 @@ const PieChart = () => {
             const { id } = data.data;
 
             // Find the corresponding data object in dataInner or dataOuter
+            // If the data id starts with inner it will render popup content from the dataInner file, else dataOuter file
             const pieData = id.startsWith("inner") ? dataInner : dataOuter;
             const clickedPiece = pieData.find((item) => item.id === id);
 
@@ -23,11 +24,19 @@ const PieChart = () => {
         }
     };
 
+    const handleEscapeKey = (event) => {
+        if (event.key === "Escape") {
+            setIsPopupOpen(false);
+        }
+    };
+
     useEffect(() => {
         document.addEventListener("click", handlePieClick);
+        document.addEventListener("keydown", handleEscapeKey);
 
         return () => {
             document.removeEventListener("click", handlePieClick);
+            document.removeEventListener("keydown", handleEscapeKey);
         };
     }, []);
 

@@ -1,4 +1,52 @@
 .outer-layer {
-    display: none;
-    width: 100%;
+    &__item {
+        width: 85px !important;
+
+        &--collaboration {
+            top: -173px;
+            left: 14.9%;
+        }
+
+        &--learning-environment {
+            width: 150px !important;
+            top: -267px;
+            left: 28.5%;
+        }
+
+        &--explicit-teaching {
+            width: 120px !important;
+            top: -270px;
+            left: 55%;
+        }
+
+        &--quality-assessment {
+            width: 90px !important;
+            top: -150px;
+            left: 74.75%;
+        }
+
+        &--wellbeing {
+            width: 72px !important;
+            top: 56px;
+            left: 75.75%;
+        }
+
+        &--high-expectations {
+            width: 155px !important;
+            top: 240px;
+            left: 53.5%;
+        }
+
+        &--using-data {
+            width: 130px !important;
+            top: 238px;
+            left: 29.25%;
+        }
+
+        &--effective-feedback {
+            width: 85rpx !important;
+            top: 60px;
+            left: 14%;
+        }
+    }
 }

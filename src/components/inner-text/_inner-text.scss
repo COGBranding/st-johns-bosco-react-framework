@@ -1,43 +1,23 @@
 .inner-layer {
-    width: 100%;
-
     &__item {
-        position: absolute !important;
-        width: 100%;
-        display: none;
-
         &--belonging {
-            display: block;
-
-            .inner-layer__item__text {
-            }
-
-            .inner-layer__item__icon {
-            }
+            left: 23%;
+            top: -195px;
         }
 
         &--learning {
-            .inner-layer__item__text {
-            }
-
-            .inner-layer__item__icon {
-            }
+            left: 58%;
+            top: -195px;
         }
 
         &--reflecting {
-            .inner-layer__item__text {
-            }
-
-            .inner-layer__item__icon {
-            }
+            left: 23%;
+            top: 85px;
         }
 
         &--celebrating {
-            .inner-layer__item__text {
-            }
-
-            .inner-layer__item__icon {
-            }
+            left: 58%;
+            top: 85px;
         }
     }
 }

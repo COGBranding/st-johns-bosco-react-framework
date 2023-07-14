@@ -92,6 +92,18 @@ ul {
     }
 }
 
+.layer {
+    width: 100%;
+    position: absolute !important;
+    pointer-events: none;
+
+    &__item {
+        position: absolute !important;
+        width: 150px;
+        z-index: 99;
+    }
+}
+
 // Learning framework
 .learning-framework {
     &__container {

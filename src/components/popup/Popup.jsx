@@ -51,6 +51,7 @@ const Popup = ({
                             event.stopPropagation();
                             onClose();
                         }}
+                        tabIndex={0}
                     >
                         <GrClose className="popup__head__close-icon" />
                     </div>
