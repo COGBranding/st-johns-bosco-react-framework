@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { GrClose } from "react-icons/gr";
 import { Overlay } from "../index";
 
@@ -15,6 +15,30 @@ const Popup = ({
     principleText,
     principleListItems,
 }) => {
+    const [isCloseIconFocused, setIsCloseIconFocused] = useState(false);
+
+    const handleKeyDown = (event) => {
+        if (event.key === "Enter" && isCloseIconFocused) {
+            onClose();
+        }
+    };
+
+    useEffect(() => {
+        if (isOpen) {
+            const handleFocus = () => setIsCloseIconFocused(true);
+            const handleBlur = () => setIsCloseIconFocused(false);
+
+            const closeIconElement = document.getElementById("close-icon");
+            closeIconElement.addEventListener("focus", handleFocus);
+            closeIconElement.addEventListener("blur", handleBlur);
+
+            return () => {
+                closeIconElement.removeEventListener("focus", handleFocus);
+                closeIconElement.removeEventListener("blur", handleBlur);
+            };
+        }
+    }, [isOpen]);
+
     if (!isOpen) {
         return null; // Render nothing if the popup is not open
     }
@@ -27,6 +51,7 @@ const Popup = ({
                 className={`popup ${
                     isOpen ? "open" : ""
                 } popup--${borderColor}`}
+                onKeyDown={handleKeyDown}
             >
                 <div className="popup__head">
                     <div className="popup__head__content">
@@ -47,11 +72,9 @@ const Popup = ({
 
                     <div
                         className="popup__head__close-icon__wrapper"
-                        onClick={(event) => {
-                            event.stopPropagation();
-                            onClose();
-                        }}
+                        onClick={onClose}
                         tabIndex={0}
+                        id="close-icon"
                     >
                         <GrClose className="popup__head__close-icon" />
                     </div>

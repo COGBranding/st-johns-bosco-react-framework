@@ -7,6 +7,7 @@ import { dataWellbeingFramework as dataInner } from "../../data/dataWellbeingFra
 const PieChart = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [popupContent, setPopupContent] = useState(null);
+    const [currentPopupIndex, setCurrentPopupIndex] = useState(0);
 
     const handlePieClick = (data, event) => {
         if (data && data.data) {
@@ -18,8 +19,13 @@ const PieChart = () => {
             const clickedPiece = pieData.find((item) => item.id === id);
 
             if (clickedPiece) {
+                const clickedIndex = pieData.findIndex(
+                    (item) => item.id === id
+                );
+
                 setPopupContent(clickedPiece);
                 setIsPopupOpen(true);
+                setCurrentPopupIndex(clickedIndex);
             }
         }
     };
@@ -30,15 +36,47 @@ const PieChart = () => {
         }
     };
 
+    const handleArrowKeys = (event) => {
+        if (event.key === "ArrowLeft") {
+            // Show the previous popup
+            setCurrentPopupIndex((prevIndex) => {
+                if (prevIndex === 0) {
+                    return dataOuter.length + dataInner.length - 1; // Set the index to the last popup of the combined data
+                } else {
+                    return prevIndex - 1;
+                }
+            });
+        } else if (event.key === "ArrowRight") {
+            // Show the next popup
+            setCurrentPopupIndex((prevIndex) => {
+                if (prevIndex === dataOuter.length + dataInner.length - 1) {
+                    return 0; // Set the index to the first popup of the combined data
+                } else {
+                    return prevIndex + 1;
+                }
+            });
+        }
+    };
+
     useEffect(() => {
         document.addEventListener("click", handlePieClick);
         document.addEventListener("keydown", handleEscapeKey);
+        document.addEventListener("keydown", handleArrowKeys);
 
         return () => {
             document.removeEventListener("click", handlePieClick);
             document.removeEventListener("keydown", handleEscapeKey);
+            document.removeEventListener("keydown", handleArrowKeys);
         };
     }, []);
+
+    useEffect(() => {
+        if (isPopupOpen) {
+            const popupData = dataOuter.concat(dataInner);
+            const currentPopup = popupData[currentPopupIndex];
+            setPopupContent(currentPopup);
+        }
+    }, [currentPopupIndex, isPopupOpen]);
 
     return (
         <div className="pie-chart">

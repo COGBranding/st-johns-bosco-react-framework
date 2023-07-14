@@ -5,13 +5,13 @@ const OuterText = () => {
     return (
         <div className="layer outer-layer">
             {data.map((item) => (
-                <>
+                <div key={item.id}>
                     <img
-                        key={item.id}
                         className={`layer__item outer-layer__item outer-layer__item--${item.id}`}
                         src={item.text}
+                        alt={`text-${item.id}`}
                     />
-                </>
+                </div>
             ))}
         </div>
     );

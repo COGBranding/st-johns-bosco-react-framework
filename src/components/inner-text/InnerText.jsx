@@ -5,13 +5,13 @@ const InnerText = () => {
     return (
         <div className="layer inner-layer">
             {data.map((item) => (
-                <>
+                <div key={item.id}>
                     <img
-                        key={item.id}
                         className={`layer__item inner-layer__item inner-layer__item--${item.id}`}
                         src={item.text}
+                        alt={`text-${item.id}`}
                     />
-                </>
+                </div>
             ))}
         </div>
     );
