@@ -1,0 +1,43 @@
+.inner-layer {
+    width: 100%;
+
+    &__item {
+        position: absolute !important;
+        width: 100%;
+        display: none;
+
+        &--belonging {
+            display: block;
+
+            .inner-layer__item__text {
+            }
+
+            .inner-layer__item__icon {
+            }
+        }
+
+        &--learning {
+            .inner-layer__item__text {
+            }
+
+            .inner-layer__item__icon {
+            }
+        }
+
+        &--reflecting {
+            .inner-layer__item__text {
+            }
+
+            .inner-layer__item__icon {
+            }
+        }
+
+        &--celebrating {
+            .inner-layer__item__text {
+            }
+
+            .inner-layer__item__icon {
+            }
+        }
+    }
+}

@@ -8,32 +8,9 @@ import {
     OuterText,
     PieChart,
 } from "../../components";
+import { dataFrameworkContent as data } from "../../data/dataFrameworkContent";
 
 const Layout = () => {
-    // Define the frameworkContent dataset
-    const frameworkContent = [
-        {
-            borderColor: "blue",
-            headingText: "The home",
-            bodyText: "Where students know they belong",
-        },
-        {
-            borderColor: "green",
-            headingText: "The school",
-            bodyText: "Where formal learning occurs",
-        },
-        {
-            borderColor: "red",
-            headingText: "The playground",
-            bodyText: "Where the community celebrates together",
-        },
-        {
-            borderColor: "orange",
-            headingText: "The church",
-            bodyText: "Where reflection occurs",
-        },
-    ];
-
     return (
         <div className="section learning-framework">
             <div className="row learning-framework__container">
@@ -50,7 +27,8 @@ const Layout = () => {
                     <div className="learning-framework__item">
                         <h2 className="text-uppercase">Frameworks</h2>
 
-                        {frameworkContent.map((item, index) => (
+                        {/* Map over the dataFrameworkContent and render the components */}
+                        {data.map((item, index) => (
                             <Framework
                                 key={index}
                                 borderColor={item.borderColor}
