@@ -68,12 +68,13 @@ const PieChart = () => {
                     innerRadius={0.8}
                     borderWidth={3}
                     borderColor={"black"}
-                    margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+                    margin={{ top: 30, right: 10, bottom: 30, left: 10 }}
                     activeOuterRadiusOffset={12}
                     arcLinkLabelsSkipAngle={10}
                     arcLinkLabelsTextColor={"fff"}
                     arcLinkLabelsThickness={2}
-                    enableArcLabels={false}
+                    arcLabel="id"
+                    enableArcLabels={true}
                     enableArcLinkLabels={false}
                     animate
                     tooltip={() => null}
@@ -90,12 +91,13 @@ const PieChart = () => {
                     innerRadius={0}
                     borderWidth={3}
                     borderColor={"black"}
-                    margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+                    margin={{ top: 30, right: 10, bottom: 30, left: 10 }}
                     activeOuterRadiusOffset={12}
                     arcLinkLabelsSkipAngle={10}
                     arcLinkLabelsTextColor={"fff"}
                     arcLinkLabelsThickness={2}
-                    enableArcLabels={false}
+                    arcLabel="id"
+                    enableArcLabels={true}
                     enableArcLinkLabels={false}
                     animate
                     tooltip={() => null}

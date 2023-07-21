@@ -62,7 +62,7 @@ const Popup = ({
 
                         {frameworkCategory && (
                             <>
-                                <p className="text-uppercase">//</p>
+                                <p className="text-uppercase">/</p>
                                 <p className="text-uppercase">
                                     {frameworkCategory}
                                 </p>
