@@ -1,6 +1,4 @@
 .inner-layer {
-    display: none;
-
     &__item {
         @media all and (min-width: 320px) {
             width: 65px !important;
@@ -8,6 +6,10 @@
 
         @media all and (min-width: 350px) {
             width: 80px !important;
+        }
+
+        @media all and (min-width: 400px) {
+            width: 90px !important;
         }
 
         &--belonging {
@@ -20,6 +22,10 @@
                 left: 17%;
                 top: -94px;
             }
+
+            @media all and (min-width: 400px) {
+                top: -105px;
+            }
         }
 
         &--learning {
@@ -31,6 +37,9 @@
             @media all and (min-width: 350px) {
                 left: 60%;
                 top: -94px;
+            }
+
+            @media all and (min-width: 400px) {
             }
         }
 
