@@ -97,7 +97,7 @@ const PieChart = () => {
                     arcLinkLabelsTextColor={"fff"}
                     arcLinkLabelsThickness={2}
                     arcLabel="id"
-                    enableArcLabels={true}
+                    enableArcLabels={false}
                     enableArcLinkLabels={false}
                     animate
                     tooltip={() => null}
